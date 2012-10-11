@@ -1,0 +1,24 @@
+# Maintainer: Sid Karunaratne <sid at karunaratne dot net>
+pkgname=weevely
+pkgver=0.7.1
+pkgrel=1
+pkgdesc="stealth PHP web shell that simulate telnet-like connection"
+arch=('any')
+url="http://epinna.github.com/Weevely"
+license=('GPL3')
+depends=(python-beautifulsoup)
+source=("https://github.com/downloads/epinna/Weevely/${pkgname}-${pkgver}.tar.gz"
+  "weevely")
+sha256sums=("d0d4a810b509199aea174b4e8952856bf0ae0ea53be70a64647e4728bc6bb981"
+  "59513d849c81cc068fc4f3716f13be66038ce48c6ba7ed257eaa5ba6c7f2f0a1")
+
+build() {
+    cd "${srcdir}/${pkgname}"
+    sed -i 's#/usr/bin/env python#/usr/bin/env python2#' weevely.py modules/audit/external/crawler.py
+}
+
+package() {
+    install -Dm755 "${srcdir}/${pkgname}/weevely.py" "${pkgdir}/opt/${pkgname}/weevely.py"
+    cp -r "${srcdir}/${pkgname}/"{core,modules} "${pkgdir}/opt/${pkgname}/"
+    install -Dm755 "${srcdir}/../weevely" "${pkgdir}/usr/bin/${pkgname}"
+}
