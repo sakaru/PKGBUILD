@@ -1,11 +1,11 @@
 #Maintainer: Sid Karunaratne <sid@karunaratne.net>
 pkgname=mod_auth_openid
 pkgver=0.7
-pkgrel=1
+pkgrel=2
 pkgdesc="An authentication module for the Apache 2 webserver. It handles the functions of an OpenID consumer as specified in the OpenID 2.0 specification"
 arch=('i686' 'x86_64')
 url="http://findingscience.com/mod_auth_openid"
-license=('APACHE')
+license=('MIT')
 depends=('apache' 'libopkele' 'sqlite')
 install="${pkgname}.install"
 source=("https://github.com/downloads/bmuller/${pkgname}/${pkgname}-${pkgver}.tar.gz")
