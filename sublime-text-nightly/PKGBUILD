@@ -2,10 +2,10 @@
 
 pkgname=sublime-text-nightly
 pkgver=3.3008
-pkgrel=1
+pkgrel=2
 pkgdesc="sophisticated text editor for code, html and prose - nightly build (available to registered users only)"
 arch=('i686' 'x86_64')
-url="http://www.sublimetext.com/nightly"
+url="http://www.sublimetext.com/3"
 license=('custom')
 depends=(libpng gtk2)
 conflicts=(sublime-text sublime-text-dev)
