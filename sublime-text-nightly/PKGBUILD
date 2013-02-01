@@ -37,9 +37,8 @@ build () {
     fi
   done
 
-  install -dm755 ${pkgdir}/usr/share/applications
-  ln -s ${srcdir}/sublime_text_${pkgver:0:1}/${_pkgrealname}.desktop ${pkgdir}/usr/share/applications/${_pkgrealname}.desktop
+  install -Dm644 ${srcdir}/${_pkgrealname}_${pkgver:0:1}/${_pkgrealname}.desktop ${pkgdir}/usr/share/applications/${_pkgrealname}.desktop
 
   install -dm755 ${pkgdir}/usr/bin
-  ln -s ${pkgdir}/opt/${_pkgrealname}/${_pkgrealname} ${pkgdir}/usr/bin/subl
+  ln -s /opt/${_pkgrealname}/${_pkgrealname} ${pkgdir}/usr/bin/subl
 }
