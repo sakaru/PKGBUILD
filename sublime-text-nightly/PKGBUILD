@@ -42,7 +42,7 @@ build() {
   rm -r tmp
 }
 
-package () {
+package() {
   cd "${srcdir}"
 
   install -dm755 "${pkgdir}/opt"
