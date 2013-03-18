@@ -30,16 +30,10 @@ md5sums=('34da7087a51135f50aca465aac3ae18b'
 build() {
   # Patch the default Preferences package to disable update notifications
   cd "${srcdir}/sublime_text_3/Packages"
-  mkdir tmp
-  mv Default.sublime-package tmp/
-  cd tmp
-  unzip Default.sublime-package
-  rm Default.sublime-package
+  unzip Default.sublime-package Preferences.sublime-settings
   patch Preferences.sublime-settings < "${srcdir}/disable-update-notifications.patch"
-  zip Default.sublime-package *
-  mv Default.sublime-package ../
-  cd ..
-  rm -r tmp
+  zip Default.sublime-package Preferences.sublime-settings
+  rm Preferences.sublime-settings
 }
 
 package() {
