@@ -8,9 +8,8 @@ url="https://github.com/etsy/statsd"
 license=('MIT')
 depends=(nodejs)
 makedepends=(git)
-source=(statsd.conf statsd.service)
-sha256sums=('438669ee20909e2a0d364937d543c22e4d56dcdd9cfb6e09fefd7c81580312c2'
-            '7a8d431bfbc386b7d66314c32cd26e52ff6353c767f75bd8e2f1a2aa98e4dc55')
+source=(statsd.service)
+sha256sums=('7a8d431bfbc386b7d66314c32cd26e52ff6353c767f75bd8e2f1a2aa98e4dc55')
 install=install
 
 _gitroot="git://github.com/etsy/statsd.git"
@@ -44,6 +43,5 @@ package() {
   mkdir -p "${pkgdir}/opt/"
   cp -r "${_gitname}" "${pkgdir}/opt/"
   rm -rf "${pkgdir}/opt/statsd/.git"
-  install -Dm 755 statsd.conf "${pkgdir}/etc/conf.d/${_gitname}"
   install -Dm 644 statsd.service "${pkgdir}/usr/lib/systemd/system/statsd.service"
 }
