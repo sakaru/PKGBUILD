@@ -42,6 +42,6 @@ build() {
 package() {
   mkdir -p "${pkgdir}/opt/"
   cp -r "${_gitname}" "${pkgdir}/opt/"
-  rm -rf "${pkgdir}/opt/statsd/.git"
+  rm -rf "${pkgdir}/opt/statsd/.git" "${pkgdir}/opt/statsd/.gitignore"
   install -Dm 644 statsd.service "${pkgdir}/usr/lib/systemd/system/statsd.service"
 }
