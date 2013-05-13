@@ -1,27 +1,22 @@
 # Maintainer: Sid Karunaratne <sid at karunaratne dot net>
 pkgname=weevely
-pkgver=1.01
+_pkgname=Weevely
+pkgver=1.1
 pkgrel=1
 pkgdesc="stealth PHP web shell that simulate telnet-like connection"
 arch=('any')
 url="http://epinna.github.com/Weevely"
 license=('GPL3')
 depends=(python2)
-source=("http://epinna.github.com/Weevely/downloads/${pkgname}-${pkgver}.tar.gz"
-  "weevely")
-sha256sums=("091aaf5dbbf91fa94aedce938e82c52af2541bf20ce2a706757028ec7afcb0f6"
-  "59513d849c81cc068fc4f3716f13be66038ce48c6ba7ed257eaa5ba6c7f2f0a1")
-
+source=("https://github.com/epinna/${_pkgname}/archive/v${pkgver}.tar.gz")
+sha256sums=("cb242cc515883e88bfa2449bd5460781ae8edc928b46b6c9cdf3326ea9de1a0c")
 build() {
-    cd "${srcdir}/${pkgname}"
-    sed -i 's#/usr/bin/env python#/usr/bin/env python2#' weevely.py \
-        modules/audit/external/crawler.py \
-        core/prettytable.py
-    sed -i 's#/usr/bin/python#/usr/bin/python2#' modules/net/external/ipaddr.py
+    sed -i 's#/usr/bin/env python#/usr/bin/env python2#' ${srcdir}/${_pkgname}-${pkgver}/weevely.py
 }
 
 package() {
-    install -Dm755 "${srcdir}/${pkgname}/weevely.py" "${pkgdir}/opt/${pkgname}/weevely.py"
-    cp -r "${srcdir}/${pkgname}/"{core,modules} "${pkgdir}/opt/${pkgname}/"
-    install -Dm755 "${srcdir}/../weevely" "${pkgdir}/usr/bin/${pkgname}"
+    install -Dm755 "${srcdir}/${_pkgname}-${pkgver}/weevely.py" "${pkgdir}/opt/${pkgname}/weevely.py"
+    cp -r "${srcdir}/${_pkgname}-${pkgver}/"{core,modules} "${pkgdir}/opt/${pkgname}/"
+    mkdir -p ${pkgdir}/usr/bin
+    ln -s /opt/${pkgname}/weevely.py ${pkgdir}/usr/bin/${pkgname}
 }
