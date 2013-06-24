@@ -8,8 +8,9 @@ url="http://www.frozensynapse.com/"
 license=('custom')
 _gamepkg="FS_Linux_Latest.run"
 _gamesum="eab8e416aa08161fa7475dfe6f85fb98f954c722985a1fe2a3115f944d3ff8a3"
-source=("${pkgname}.desktop" ${pkgname})
-sha256sums=("cdcfda5e8c79bb762cf10342ecb9c818c919b1b499e857f29bf7ccc0707dc966" "99e31a96a4f37b6bdabcf5265ee90c5c791348b00e41f6de4c98cabb5589a222")
+source=(frozensynapse.desktop frozensynapse)
+sha256sums=('cdcfda5e8c79bb762cf10342ecb9c818c919b1b499e857f29bf7ccc0707dc966'
+            'a909ce9785bb2a52cfe250a4102267d330fbc55d1e2f13d61e62f78e4bcf1d68')
 
 if [[ $CARCH == x86_64 ]]; then
   depends=('lib32-glibc' 'lib32-gcc-libs' 'lib32-openal' 'lib32-sdl' 'lib32-mesa')
@@ -43,8 +44,8 @@ build() {
 
 package() {
     cd $srcdir
-    ./FS_Linux_Latest.run --mode unattended --prefix ${pkgdir}/opt/${pkgname}
-    install -Dm755 "${srcdir}/${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
-    install -Dm644 "${pkgdir}/opt/${pkgname}/fs_icon.png" "${pkgdir}/usr/share/pixmaps/${pkgname}.png"
-    install -Dm644 ${srcdir}/${pkgname}.desktop "${pkgdir}/usr/share/applications/${pkgname}.desktop"
+    ./FS_Linux_Latest.run --mode unattended --prefix "${pkgdir}/opt/frozensynapse"
+    install -Dm755 "${srcdir}/frozensynapse" "${pkgdir}/usr/bin/frozensynapse"
+    install -Dm644 "${pkgdir}/opt/frozensynapse/fs_icon.png" "${pkgdir}/usr/share/pixmaps/frozensynapse.png"
+    install -Dm644 ${srcdir}/frozensynapse.desktop "${pkgdir}/usr/share/applications/frozensynapse.desktop"
 }
