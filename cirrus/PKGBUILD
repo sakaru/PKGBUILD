@@ -1,0 +1,18 @@
+# Maintainer: Sid Karunaratne <sid at karunaratne dot net>
+pkgname=cirrus
+pkgver=0.10
+pkgrel=1
+pkgdesc="A set of tools for configuring Amazon route53"
+arch=('any')
+url="https://github.com/sakaru/cirrus"
+license=('BSD')
+depends=(boost)
+source=("git://github.com/sakaru/cirrus.git#commit=9380d30f605310d434bf0efe3403a6c931fdc52e")
+sha256sums=("SKIP")
+
+package() {
+    install -Dm755 $srcdir/cirrus/bin/dns_setup.py $pkgdir/usr/bin/dns_setup.py
+    install -Dm755 $srcdir/cirrus/bin/update_host.py $pkgdir/usr/bin/update_host.py
+    install -Dm644 $srcdir/cirrus/cirrus/__init__.py $pkgdir/usr/lib/python2.7/site-packages/cirrus/__init__.py
+    install -Dm644 $srcdir/cirrus/cirrus/r53.py $pkgdir/usr/lib/python2.7/site-packages/cirrus/r53.py
+}
