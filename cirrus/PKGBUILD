@@ -6,7 +6,7 @@ pkgdesc="A set of tools for configuring Amazon route53"
 arch=('any')
 url="https://github.com/sakaru/cirrus"
 license=('BSD')
-depends=(python2-dnspython python2-boto)
+depends=(python2-dnspython python2-boto python2-yaml)
 source=("git://github.com/sakaru/cirrus.git#commit=9380d30f605310d434bf0efe3403a6c931fdc52e")
 sha256sums=("SKIP")
 
