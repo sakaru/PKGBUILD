@@ -1,4 +1,4 @@
-# Maintainer: Renzo Carbonara <gnuk0001@gmail.com>
+# Maintainer: Sid Karunaratne <sid@karunaratne.net>
 pkgname=rb-inotify
 pkgver=0.9.0
 pkgrel=1

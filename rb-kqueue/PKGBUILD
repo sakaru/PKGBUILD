@@ -1,4 +1,4 @@
-# Maintainer: Renzo Carbonara <gnuk0001@gmail.com>
+# Maintainer: Sid Karunaratne <sid@karunaratne.net>
 pkgname=rb-kqueue
 pkgver=0.2.0
 pkgrel=1

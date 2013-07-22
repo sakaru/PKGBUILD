@@ -1,9 +1,10 @@
+# Maintainer: Sid Karunaratne <sid@karunaratne.net>
 # Contributor:  Hyacinthe Cartiaux <hyacinthe.cartiaux (a) free.fr>
 
 pkgname=ruby-listen
 pkgver=1.2.2
 _realname="listen"
-pkgrel=3
+pkgrel=1
 pkgdesc="The Listen gem listens to file modifications and notifies you about the changes. Works everywhere!"
 arch=('any')
 url="https://rubygems.org/gems/listen"
