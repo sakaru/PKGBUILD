@@ -1,0 +1,21 @@
+# Contributor:  Hyacinthe Cartiaux <hyacinthe.cartiaux (a) free.fr>
+
+pkgname=ruby-listen
+pkgver=1.2.2
+_realname="listen"
+pkgrel=3
+pkgdesc="The Listen gem listens to file modifications and notifies you about the changes. Works everywhere!"
+arch=('any')
+url="https://rubygems.org/gems/listen"
+license=("MIT")
+depends=('ruby' 'rb-inotify>=0.9')
+source=(http://gems.rubyforge.org/gems/$_realname-$pkgver.gem)
+md5sums=('7a3719caa80f4a86072d11f7ffdc219f')
+noextract=($real_name-$pkgver.gem)
+
+package() {
+  cd $srcdir
+  local _gemdir="$(ruby -rubygems -e'puts Gem.default_dir')"
+  gem install --ignore-dependencies --no-user-install -i "$pkgdir$_gemdir" ${_realname}-$pkgver.gem
+}
+
