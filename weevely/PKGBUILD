@@ -2,7 +2,7 @@
 pkgname=weevely
 _pkgname=Weevely
 pkgver=1.1
-pkgrel=1
+pkgrel=2
 pkgdesc="stealth PHP web shell that simulate telnet-like connection"
 arch=('any')
 url="http://epinna.github.com/Weevely"
@@ -15,8 +15,7 @@ build() {
 }
 
 package() {
-    install -Dm755 "${srcdir}/${_pkgname}-${pkgver}/weevely.py" "${pkgdir}/opt/${pkgname}/weevely.py"
-    cp -r "${srcdir}/${_pkgname}-${pkgver}/"{core,modules} "${pkgdir}/opt/${pkgname}/"
-    mkdir -p ${pkgdir}/usr/bin
-    ln -s /opt/${pkgname}/weevely.py ${pkgdir}/usr/bin/${pkgname}
+    install -Dm755 "${srcdir}/${_pkgname}-${pkgver}/weevely.py" "${pkgdir}/usr/bin/weevely.py"
+    install -dm644 "${pkgdir}/usr/lib/python2.7/site-packages/"
+    cp -r "${srcdir}/${_pkgname}-${pkgver}/"{core,modules} "${pkgdir}/usr/lib/python2.7/site-packages/"
 }
