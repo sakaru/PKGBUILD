@@ -1,7 +1,7 @@
 # Maintainer: Sid Karunaratne <sid at karunaratne dot net>
 pkgname=elastic-mapreduce
 pkgver=20130319
-pkgrel=1
+pkgrel=2
 pkgdesc="a pure Ruby client for the Amazon Elastic MapReduce Web Service."
 arch=('any')
 url="https://github.com/tc/elastic-mapreduce-ruby"
@@ -9,7 +9,7 @@ license=('APACHE')
 source=("http://elasticmapreduce.s3.amazonaws.com/${pkgname}-ruby.zip"
         "${pkgname}")
 noextract=("${pkgname}-ruby.zip")
-sha256sums=('2e109ad4590f5611cbf7af5ff5e75caf4fe369b0d13e11c5a40ac448db4072cf'
+sha256sums=('aa8855a852fed8ed585884f2040b60aac758926ab11f66279955371db05c208d'
             'fdafdd3394bda33837898414c9880a35850c8070a51e4297d82832908002035a')
 depends=(ruby1.8)
 makedepends=(unzip)
