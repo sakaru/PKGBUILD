@@ -1,16 +1,16 @@
 # Maintainer: Sid Karunaratne <sid@karunaratne.net>
 
 pkgname=ruby-pwdhash
-pkgver=0.2.0
+pkgver=0.3.0
 _realname="pwdhash"
-pkgrel=3
+pkgrel=1
 pkgdesc="Command line version of Stanford PwdHash"
 arch=('any')
 url="https://rubygems.org/gems/pwdhash"
 license=("MIT")
 depends=('ruby' 'ruby-highline' 'ruby-hmac')
 source=(http://gems.rubyforge.org/gems/$_realname-$pkgver.gem)
-md5sums=('e8c6173c9855b6882cdaf6247a3de6e3')
+md5sums=('848f077a9f051f0b4a4d4de75a90bbd9')
 noextract=($real_name-$pkgver.gem)
 
 package() {
