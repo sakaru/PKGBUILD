@@ -1,0 +1,21 @@
+# Maintainer: Sid Karunaratne <sid at karunaratne dot net>
+pkgname=gog-sidmeierscolonization
+pkgver=1.0.0.3
+pkgrel=1
+pkgdesc="a turn-based strategy game themed on the early European colonization of the New World"
+arch=("i686" "x86_64")
+url="http://www.gog.com/game/sid_meiers_colonization"
+license=("custom")
+source=("sid_meier_s_colonization_${pkgver}.tar.gz"
+  "sidmeierscolonization")
+sha256sums=('e5924289e5a17a6938591e0e5d78a3ac0b1af6b8892ab63023f5b7c3fcbd610d'
+            '675ac219ad406c255a2dbce4494f50b69e6578fc2e1a23dfcdee211571677aa5')
+depends=(libpng12 unionfs-fuse)
+
+package() {
+  mkdir -p "${pkgdir}/opt/gog/sidmeierscolonization"
+  cp -r "${srcdir}/Sid Meiers Colonization"/* "${pkgdir}/opt/gog/sidmeierscolonization"
+  install -Dm755 "${srcdir}/sidmeierscolonization" "${pkgdir}/usr/bin/sidmeierscolonization"
+}
+
+PKGEXT=.pkg.tar
